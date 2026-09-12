@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/vote",
+      "destination": "https://hikwcryqqixqjmckhxyh.supabase.co/functions/v1/mareuil-match"
+    }
+  ]
+}
