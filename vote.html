@@ -16,7 +16,7 @@ const $=x=>document.getElementById(x);
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 async function load(){
  if(!token){$('app').innerHTML='<h1>⚽ Mareuil Match</h1><p class="err">Lien de vote incomplet.</p>';return}
- try{let r=await fetch(API+'?api=match&token='+encodeURIComponent(token));let j=await r.json();if(!r.ok)throw Error(j.error||'Erreur');d=j;render()}
+ try{let r=await Promise.race([fetch(API+'?api=match&token='+encodeURIComponent(token)),new Promise((_,reject)=>setTimeout(()=>reject(Error('Le serveur ne répond pas.')),8000))]);let j=await r.json();if(!r.ok)throw Error(j.error||'Erreur');d=j;render()}
  catch(e){$('app').innerHTML='<h1>⚽ Mareuil Match</h1><p class="err">'+esc(e.message)+'</p>'}
 }
 function render(){
