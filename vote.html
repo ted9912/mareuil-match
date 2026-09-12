@@ -10,7 +10,7 @@ select,button{width:100%;padding:14px;border-radius:12px;font-size:16px}select{b
 .muted{color:#aeb8b0}.err{color:#ff7777;font-weight:700}.ok{text-align:center;padding:40px 10px}
 </style></head><body><main><div id="app" class="card">Chargement…</div></main>
 <script>
-const API='https://hikwcryqqixqjmckhxyh.supabase.co/functions/v1/mareuil-match';
+const API='/api/vote';
 const token=new URLSearchParams(location.search).get('token');let d,top=[],flop=[];
 const $=x=>document.getElementById(x);
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
