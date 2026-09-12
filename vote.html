@@ -40,7 +40,7 @@ function check(){let distinct=new Set([...top,...flop]).size;$('send').disabled=
 async function submit(){
  $('send').disabled=true;$('msg').textContent='Envoi…';
  let b={token,voter_id:$('voter').value};top.forEach((x,i)=>b['top_'+(i+1)]=x);flop.forEach((x,i)=>b['flop_'+(i+1)]=x);
- try{let r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});let j=await r.json();if(!r.ok)throw Error(j.error||'Erreur');$('app').innerHTML='<div class="ok"><h1>✅ Vote enregistré</h1><p>Merci pour ton vote !</p></div>'}
+ try{let r=await Promise.race([fetch(API+'?api=match&token='+encodeURIComponent(token)),new Promise((_,reject)=>setTimeout(()=>reject(Error('Délai dépassé : le serveur ne répond pas.')),8000))]);let j=await r.json();if(!r.ok)throw Error(j.error||'Erreur');d=j;render()}
  catch(e){$('msg').innerHTML='<span class="err">'+esc(e.message)+'</span>';$('send').disabled=false}
 }
 load();
