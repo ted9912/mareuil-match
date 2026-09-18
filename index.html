@@ -1,1 +1,174 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#061827"><title>Mareuil Match</title><style>*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#03131f;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{background-image:linear-gradient(180deg,rgba(0,10,20,.10),rgba(0,10,20,.58)),url("/assets/mareuil-bg-high.jpg?v=20260918-2");background-position:center top;background-size:100% 100%;background-attachment:fixed;background-repeat:no-repeat}main{max-width:720px;margin:auto;padding:24px 12px 40px}.hero{min-height:330px;display:flex;flex-direction:column;justify-content:flex-end;text-align:center;padding:20px 15px 34px;background:transparent}.hero h1{font-size:34px;margin:8px 0 2px;letter-spacing:.07em;text-shadow:0 3px 12px #000}.hero h1 span{color:#35df79}.hero p{color:#e0e8ec;margin:0;font-style:italic;text-shadow:0 2px 8px #000}.card{background:rgba(3,20,34,.58);backdrop-filter:blur(3px);border:1px solid #3b6579;border-radius:23px;padding:17px;margin:12px 0;box-shadow:0 15px 38px #0007}.choice{display:flex;align-items:center;gap:12px;text-decoration:none;color:#031c10;background:linear-gradient(90deg,#2dcc58,#72e67c);padding:16px;border-radius:15px;margin:8px 0;font-weight:950}.choice.admin{background:#09213a;color:#fff}.ico{font-size:23px}.choice span:nth-child(2){flex:1}.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px}.legend div{padding:15px;border-radius:16px;background:rgba(2,14,27,.60);border:1px solid #365769}.legend b{display:block;margin-bottom:5px}.wave{color:#5ed5ff}.rain{color:#ff7279}.score{color:#b5c4cc;font-size:12px;line-height:1.65}.foot{text-align:center;color:#a0b3bd;font-size:11px;margin-top:20px}@media(max-width:420px){main{padding:8px 8px 30px}.hero{min-height:350px}.hero h1{font-size:28px}.legend{grid-template-columns:1fr}.card{padding:13px}}</style></head><body><main><section class="hero"><h1>MAREUIL <span>MATCH</span></h1><p>Plus qu'un club, une équipe !</p></section><div class="card"><a class="choice" href="/vote.html"><span class="ico">⚽</span><span>Voter pour le match</span><span>→</span></a><a class="choice admin" href="/admin.html"><span class="ico">⚙️</span><span>Administration</span><span>→</span></a></div><div class="card"><div class="legend"><div><b class="wave">🌊 MAREUILLAIS SUR LE LAY</b><span class="score">Les 4 joueurs qui ont régalé</span></div><div><b class="rain">🌧️ MAREUILLAIS SOUS LE LAY</b><span class="score">Les 4 joueurs qui ont moins régalé</span></div></div></div><div class="card"><h2>🏆 Le barème</h2><div class="score"><b>Sur le Lay</b> : 1er +4 · 2e +3 · 3e +2 · 4e +1<br><b>Sous le Lay</b> : 1er −4 · 2e −3 · 3e −2 · 4e −1</div></div><div class="foot">Mareuil Match · Le vestiaire décide</div></main></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061827">
+<title>Mareuil Match</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#03131f;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{
+  min-height:100vh;
+  background-image:
+    linear-gradient(180deg,rgba(1,13,27,.08) 0%,rgba(1,13,27,.18) 28%,rgba(1,10,19,.72) 100%),
+    url("/assets/mareuil-bg-high.jpg?v=20260918-2");
+  background-position:center top;
+  background-size:cover;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 18%,rgba(29,143,214,.16),transparent 36%),
+             linear-gradient(180deg,transparent 45%,rgba(0,8,15,.35) 100%);
+}
+main{position:relative;z-index:1;width:min(720px,100%);margin:auto;padding:10px 14px 42px}
+.hero{
+  min-height:390px;display:flex;flex-direction:column;justify-content:flex-end;
+  text-align:center;padding:20px 12px 28px;position:relative;
+}
+.hero h1{
+  font-size:clamp(32px,9vw,54px);line-height:.95;margin:0;
+  letter-spacing:.045em;font-weight:950;text-shadow:0 4px 18px #000;
+}
+.hero h1 span{color:#29e76d}
+.hero p{font-size:clamp(17px,4.5vw,25px);color:#edf5f7;margin:10px 0 0;font-style:italic;text-shadow:0 3px 12px #000}
+.hero .motto{margin-top:13px;font-size:16px;color:#9bdcff;opacity:.95}
+.glass{
+  background:linear-gradient(145deg,rgba(5,29,48,.72),rgba(2,17,31,.62));
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(102,190,235,.42);border-radius:27px;
+  padding:16px;box-shadow:0 18px 45px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.05);
+  margin:14px 0;
+}
+.actions{padding:14px}
+.choice{
+  display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;
+  padding:18px 18px;border-radius:21px;margin:8px 0;font-weight:900;
+  border:1px solid rgba(255,255,255,.10);box-shadow:0 9px 25px rgba(0,0,0,.24);
+  transition:transform .15s ease,filter .15s ease;
+}
+.choice:active{transform:scale(.985);filter:brightness(.96)}
+.choice.vote{background:linear-gradient(110deg,#19c953,#70e47c);color:#03180c}
+.choice.admin{background:linear-gradient(110deg,rgba(5,39,67,.96),rgba(8,30,52,.96));color:#fff;border-color:rgba(71,165,226,.28)}
+.choice .ico{font-size:30px;line-height:1}
+.choice .label{flex:1;font-size:20px}
+.choice small{display:block;font-size:12px;font-weight:650;opacity:.78;margin-top:4px}
+.choice .arrow{font-size:31px;font-weight:400}
+.section-title{display:flex;align-items:center;gap:11px;margin:2px 4px 13px;font-size:25px;font-weight:950}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.legend-card{
+  min-height:122px;padding:17px 14px;border-radius:21px;
+  background:rgba(2,17,31,.66);border:1px solid rgba(93,177,219,.34);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.legend-card .big{font-size:31px;line-height:1;margin-bottom:11px}
+.legend-card b{display:block;font-size:15px;line-height:1.15;letter-spacing:.02em}
+.legend-card p{margin:7px 0 0;color:#b9c9d2;font-size:12px;line-height:1.35}
+.wave{color:#52d1ff}.rain{color:#ff747b}
+.legend-card.wave-card{border-color:rgba(38,159,231,.42)}
+.legend-card.rain-card{border-color:rgba(255,94,111,.34)}
+.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.score-card{
+  overflow:hidden;border-radius:20px;background:rgba(2,17,31,.68);
+  border:1px solid rgba(93,177,219,.34)
+}
+.score-card.rain-score{border-color:rgba(255,94,111,.38)}
+.score-head{padding:13px 11px 10px;font-weight:950;font-size:14px;border-bottom:1px solid rgba(255,255,255,.09)}
+.score-head.wave{color:#52d1ff}.score-head.rain{color:#ff747b}
+.points{display:grid;grid-template-columns:repeat(4,1fr)}
+.points div{text-align:center;padding:10px 3px;border-right:1px solid rgba(255,255,255,.08)}
+.points div:last-child{border-right:0}
+.points span{display:block;font-size:11px;color:#d7e2e7;margin-bottom:4px}
+.points strong{font-size:18px}
+.rain-score .points strong{color:#ff747b}
+.score-note{color:#aebfc8;font-size:12px;line-height:1.55;margin-top:13px}
+.footer{text-align:center;color:#9db4bf;font-size:14px;margin:20px 0 0;font-style:italic}
+.footer span{color:#28e76c}
+@media(max-width:520px){
+  main{padding:6px 9px 34px}
+  .hero{min-height:375px;padding-bottom:24px}
+  .hero h1{font-size:32px}
+  .hero p{font-size:17px}
+  .glass{border-radius:25px;padding:13px;margin:12px 0}
+  .actions{padding:12px}
+  .choice{padding:16px 14px;border-radius:19px}
+  .choice .label{font-size:18px}
+  .choice small{font-size:11px}
+  .legend-card{min-height:125px;padding:14px 11px}
+  .legend-card b{font-size:13px}
+  .section-title{font-size:23px}
+}
+@media(max-width:360px){
+  .legend{grid-template-columns:1fr}
+  .hero{min-height:350px}
+  .score-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <h1>MAREUIL <span>MATCH</span></h1>
+    <p>Plus qu'un club, une équipe !</p>
+    <div class="motto">🌊 Mareuil, toujours plus loin ensemble</div>
+  </section>
+
+  <section class="glass actions">
+    <a class="choice vote" href="/vote.html">
+      <span class="ico">⚽</span>
+      <span class="label">Voter pour le match<small>Donnez votre avis, c'est anonyme !</small></span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="choice admin" href="/admin.html">
+      <span class="ico">⚙️</span>
+      <span class="label">Administration<small>Gérer les matchs, joueurs et résultats</small></span>
+      <span class="arrow">→</span>
+    </a>
+  </section>
+
+  <section class="glass">
+    <div class="legend">
+      <div class="legend-card wave-card">
+        <div class="big">🌊</div>
+        <b class="wave">MAREUILLAIS SUR LE LAY</b>
+        <p>Les 4 joueurs qui ont le plus régalé</p>
+      </div>
+      <div class="legend-card rain-card">
+        <div class="big">🌧️</div>
+        <b class="rain">MAREUILLAIS SOUS LE LAY</b>
+        <p>Les 4 joueurs qui ont moins régalé</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="glass">
+    <div class="section-title">🏆 <span>Le barème</span></div>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="score-head wave">🌊 SUR LE LAY</div>
+        <div class="points">
+          <div><span>1er</span><strong>+4</strong></div>
+          <div><span>2e</span><strong>+3</strong></div>
+          <div><span>3e</span><strong>+2</strong></div>
+          <div><span>4e</span><strong>+1</strong></div>
+        </div>
+      </div>
+      <div class="score-card rain-score">
+        <div class="score-head rain">🌧️ SOUS LE LAY</div>
+        <div class="points">
+          <div><span>1er</span><strong>-4</strong></div>
+          <div><span>2e</span><strong>-3</strong></div>
+          <div><span>3e</span><strong>-2</strong></div>
+          <div><span>4e</span><strong>-1</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="score-note">Les points sont ajoutés au classement de la saison lorsque le match est terminé.</div>
+  </section>
+
+  <div class="footer">Mareuil Match · <span>Ensemble, plus fort !</span></div>
+</main>
+</body>
+</html>
