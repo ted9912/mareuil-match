@@ -17,16 +17,13 @@ body{
 }
 body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 18%,rgba(29,143,214,.18),transparent 38%),linear-gradient(180deg,transparent 45%,rgba(0,8,15,.35) 100%)}
 main{position:relative;z-index:1;width:min(760px,100%);margin:auto;padding:10px 12px 42px}
-.hero{min-height:330px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;padding:20px 10px 26px}
-.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:auto}
+.hero{min-height:205px;display:flex;flex-direction:column;justify-content:flex-start;position:relative;padding:16px 10px 0}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .back{width:48px;height:48px;border-radius:16px;background:rgba(3,24,40,.68);border:1px solid rgba(105,193,236,.4);display:grid;place-items:center;color:#fff;text-decoration:none;font-size:30px;line-height:1}
 .logout-top{width:auto;margin:0;padding:11px 14px;border-radius:16px;background:rgba(3,24,40,.72);border:1px solid rgba(105,193,236,.45);color:#fff;font-weight:900;font-size:13px;box-shadow:0 10px 28px #0005}
-.hero-title{display:flex;align-items:center;gap:18px;justify-content:center}
-.crest{width:104px;height:104px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 8px 16px #0009)}
-.hero h1{font-size:clamp(31px,8vw,54px);line-height:.9;margin:0;letter-spacing:.045em;font-weight:950;text-shadow:0 4px 18px #000}
-.hero h1 span{color:#29e76d;display:block;font-style:italic}
-.hero p{font-size:18px;color:#edf5f7;margin:11px 0 0;text-align:center;text-shadow:0 3px 12px #000}
-.hero .motto{margin-top:9px;font-size:15px;color:#9bdcff;text-align:center}
+
+
+
 .glass{background:linear-gradient(145deg,rgba(5,29,48,.78),rgba(2,17,31,.67));backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border:1px solid rgba(102,190,235,.42);border-radius:27px;padding:16px;box-shadow:0 18px 45px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.05);margin:13px 0}
 .login-card{padding:20px}
 h2{margin:0 0 13px;font-size:25px}
@@ -67,8 +64,8 @@ details[open] .chevron{transform:rotate(180deg)}
 .admin-list{margin-top:10px}
 .admin-person{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:13px;background:rgba(6,27,42,.72);border:1px solid rgba(65,119,144,.42);margin:6px 0;font-weight:750}
 .admin-person small{color:#86aab9;font-weight:650}
-@media(max-width:600px){main{padding:6px 9px 34px}.hero{min-height:310px}.hero-title{gap:9px}.crest{width:78px;height:78px}.hero h1{font-size:32px}.hero p{font-size:17px}.glass{border-radius:25px;padding:11px;margin:11px 0}summary{padding:16px 13px;min-height:78px}.summary-icon{font-size:28px;width:36px}.summary-title{font-size:18px}.summary-sub{font-size:12px}.detail-body{padding:0 13px 14px}.row,.match-actions{grid-template-columns:1fr}.rank{align-items:flex-start;flex-direction:column;gap:3px}.rank span{text-align:left}.logout-top{font-size:12px;padding:10px 11px}}
-@media(max-width:380px){.hero-title{flex-direction:column;gap:5px}.hero{min-height:335px}.ranking-board{grid-template-columns:1fr}.ranking-pod.first{transform:none}}
+@media(max-width:600px){main{padding:6px 9px 34px}.hero{min-height:205px}.glass{border-radius:25px;padding:11px;margin:11px 0}summary{padding:16px 13px;min-height:78px}.summary-icon{font-size:28px;width:36px}.summary-title{font-size:18px}.summary-sub{font-size:12px}.detail-body{padding:0 13px 14px}.row,.match-actions{grid-template-columns:1fr}.rank{align-items:flex-start;flex-direction:column;gap:3px}.rank span{text-align:left}.logout-top{font-size:12px;padding:10px 11px}}
+@media(max-width:380px){.hero{min-height:205px}.ranking-board{grid-template-columns:1fr}.ranking-pod.first{transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 </style>
 </head>
@@ -79,11 +76,7 @@ details[open] .chevron{transform:rotate(180deg)}
     <a class="back" href="/" aria-label="Retour">‹</a>
     <button id="topLogout" class="logout-top hide" onclick="logout()">↪ Se déconnecter</button>
   </div>
-  <div class="hero-title">
-    <img class="crest" src="/assets/mareuil-goat-chevre.svg" alt="Mareuil">
-    <div><h1>MAREUIL <span>MATCH</span></h1><p>Administration</p></div>
-  </div>
-  <div class="motto">Plus qu'un club, une équipe !</div>
+  
 </section>
 
 <div id="loginBox" class="glass login-card">
