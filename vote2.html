@@ -99,7 +99,7 @@
       const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
       const t=await r.text();
       let j; try{j=JSON.parse(t);}catch(e){j={error:'Réponse invalide du serveur.'};}
-      if(!r.ok) throw new Error(j.error||'Erreur lors de l’envoi.');
+      if(!r.ok){ const raw=String(j.error||''); if(raw.includes('ALREADY_VOTED')) throw new Error('Ce votant a déjà enregistré son vote. Choisis un autre votant ou consulte les résultats.'); throw new Error(j.error||'Erreur lors de l’envoi.'); }
       app.innerHTML='<div class="ok"><div class="success-icon">✓</div><h2>Vote enregistré !</h2><p>Le vestiaire a parlé. 😎</p><a href="/resultats.html?token='+encodeURIComponent(token)+'" style="display:inline-block;margin-top:14px;padding:13px 18px;border-radius:13px;background:linear-gradient(90deg,#2ecb59,#70e878);color:#032012;text-decoration:none;font-weight:950">📊 Voir les résultats en direct</a></div>';
     }catch(e){
       msg.className='err'; msg.textContent=e.message; draw();
