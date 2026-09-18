@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       const r = await fetch(`${SUPABASE_FUNCTION}?api=match&token=${encodeURIComponent(activeToken)}`, { cache: 'no-store' });
       const text = await r.text();
       let data; try { data = JSON.parse(text); } catch { data = { error: text || 'Réponse invalide.' }; }
+      if (r.ok && !token && data?.match) data.match.public_token = activeToken;
       return res.status(r.status).json(data);
     }
     if (req.method === 'POST') {
